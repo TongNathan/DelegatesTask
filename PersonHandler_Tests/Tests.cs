@@ -10,9 +10,9 @@ namespace PersonHandler_Tests {
         private FileHandler _fh;
         private DataParser _dp;
 
-        private string csvPath = "/Users/102090809/source/repos/DelegatesTask/Files"; // change to appropriate path
-        private List<List<string>> data;
+        private string csvPath = @"C:/Users/Nathan/source/repos/DelegatesTask/Files/data.csv"; // change to appropriate path
 
+        private List<List<string>> data;
         private List<Person> people;
 
         [SetUp]
