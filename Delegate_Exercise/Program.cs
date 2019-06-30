@@ -43,7 +43,7 @@ namespace Delegate_Exercise
 
                 foreach (string cell in row)
                 {
-                    newdata[data.IndexOf(row)].Add(cell.Trin("#"));
+                    newdata[data.IndexOf(row)].Add(cell.Trim('#'));
                 }
             }
 
