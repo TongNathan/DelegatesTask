@@ -47,7 +47,6 @@ namespace Delegate_Exercise
                 }
             }
 
-
             data = newdata;
             return data;
         }

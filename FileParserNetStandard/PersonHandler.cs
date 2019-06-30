@@ -92,6 +92,7 @@ namespace FileParserNetStandard
                 int counter = People.Count(person => person.Dob == date);
                 result.Add(date + "\t" + counter);
             }
+
             return result;  //-- return result here
         }
     }
