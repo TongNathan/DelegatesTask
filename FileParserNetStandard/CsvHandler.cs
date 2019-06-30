@@ -20,17 +20,17 @@ namespace Delegate_Exercise
         /// <param name="dataHandler"></param>
         public void ProcessCsv(string readFile, string writeFile, Func<List<List<string>>, List<List<string>>> dataHandler)
         {
+            FileHandler handler = new FileHandler();
+            List<string> items = handler.ReadFile(readFile);
+            // ["1,2,3,4", "5,6,7,8"]
+            // into
+            // [[1, 2, 3, 4], [5, 6, 7, 8]]
 
-            FileHandler fileHandler = new FileHandler();
-            List<string> fileRead = fileHandler.ReadFile(readFile);
-            List<List<string>> parse = fileHandler.ParseCsv(fileRead);
-            List<List<string>> NewRow = dataHandler(parse);
-
-
-            fileHandler.WriteFile(writeFile, ',', NewRow);
-
+            List<List<string>> rows = handler.ParseCsv(items);
+            List<List<string>> newrows = dataHandler(rows);
+            //lines need to become rows (List<string> into <List<List<string>>>
+            handler.WriteFile(writeFile, ',', newrows);
         }
-
 
     }
 }
