@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using FileParserNetStandard;
+using System.IO;
+using System.Linq;
 
 namespace Delegate_Exercise
 {
@@ -18,11 +20,17 @@ namespace Delegate_Exercise
         /// <param name="dataHandler"></param>
         public void ProcessCsv(string readFile, string writeFile, Func<List<List<string>>, List<List<string>>> dataHandler)
         {
-            FileHandler filehandler = new FileHandler();
-            List<string> data = filehandler.ReadFile(readFile);
-            List<List<string>> parseddata = filehandler.ParseCsv(data);
-            List<List<string>> handleddata = dataHandler(parseddata);
-            filehandler.WriteFile(writeFile, ',', handleddata);
+
+            FileHandler fileHandler = new FileHandler();
+            List<string> fileRead = fileHandler.ReadFile(readFile);
+            List<List<string>> parse = fileHandler.ParseCsv(fileRead);
+            List<List<string>> NewRow = dataHandler(parse);
+
+
+            fileHandler.WriteFile(writeFile, ',', NewRow);
+
         }
+
+
     }
 }

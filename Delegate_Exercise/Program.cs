@@ -16,33 +16,36 @@ namespace Delegate_Exercise
         public delegate List<List<string>> parse(List<List<string>> data);
         public static void Main(string[] args)
         {
-            FileHandler fileHandler = new FileHandler();
+            string readFilePath = @"C:/Users/Nathan/source/repos/DelegatesTask/Files/data.csv";
+            string writeFilePath = @"C:/Users/Nathan/source/repos/DelegatesTask/Files/processed_data.csv";
+
             DataParser dataParser = new DataParser();
+            List<List<string>> handler(List<List<string>> data) =>
+            dataParser.StripQuotes(data);
             CsvHandler csvHandler = new CsvHandler();
+            csvHandler.ProcessCsv(readFilePath, writeFilePath, handler);
 
-            string ReadFilePath = @"C:/Users/Nathan/source/repos/DelegatesTask/Files/data.csv";
-            string WriteFilePath = @"C:/Users/Nathan/source/repos/DelegatesTask/Files/processed_data.csv";
-
-
-        //csvHandler.ProcessCsv(ReadFilePath, WriteFilePath, data => trim(data));
-
-
-        Func<List<List<string>>, List<List<string>>> trim = new Func<List<List<string>>, List<List<string>>>(dataParser.StripQuotes);
-            trim = trim + dataParser.StripWhiteSpace;
-            trim = trim + RemoveHash;
-            csvHandler.ProcessCsv(ReadFilePath, WriteFilePath, trim);
-            Console.ReadKey();
+            Console.WriteLine("Done. ");
+            Console.ReadLine();
 
         }
 
         public static List<List<string>> RemoveHash(List<List<string>> data)
         {
-            return data.Select(r => r.Select(y => y.Trim('#')).ToList()).ToList();
+            List<List<string>> newdata = new List<List<string>>();
+            foreach (List<string> row in data)
+            {
+                newdata.Add(new List<string>());
+                foreach (string cell in row)
+                {
+                    newdata[data.IndexOf(row)].Add(cell.Trim('#'));
+                }
+            }
+
+            data = newdata;
+            return data;
+    
         }
-
-
-
-
 
     }
 }
