@@ -16,20 +16,20 @@ namespace Delegate_Exercise
         {
             string readfilePath = @"C:/Users/Nathan/source/repos/DelegatesTask/Files/data.csv";
             string writefilePath = @"C:/Users/Nathan/source/repos/DelegatesTask/Files/processed_data.csv";
+
             DataParser dataParser = new DataParser();
 
             List<List<string>> handler(List<List<string>> data) =>
 
-            dataParser.StripQuotes(data);
+            StripHash(dataParser.StripWhiteSpace(dataParser.StripQuotes(data)));
 
             CsvHandler csvHandler = new CsvHandler();
 
             csvHandler.ProcessCsv(readfilePath, writefilePath, handler);
 
             Console.WriteLine("Certified BRUH Moment ");
+
             Console.ReadLine();
-
-
 
         }
 
@@ -51,6 +51,8 @@ namespace Delegate_Exercise
             data = newdata;
             return data;
         }
+
+
 
     }
 
