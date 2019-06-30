@@ -15,18 +15,15 @@ namespace FileParserNetStandard {
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns></returns>
-        public List<string> ReadFile(string filePath) {
+        public List<string> ReadFile(string filePath)
+        {
             List<string> lines = new List<string>();
-
-            lines = filePath
-                .Select();
-                .ToString();
+            lines = File.ReadAllLines(filePath)
                 .ToList();
-
             return lines;
         }
 
-        
+
         /// <summary>
         /// Takes a list of a list of data.  Writes to file, using delimeter to seperate data.  Always overwrites.
         /// </summary>
@@ -35,9 +32,17 @@ namespace FileParserNetStandard {
         /// <param name="rows"></param>
         public void WriteFile(string filePath, char delimeter, List<List<string>> rows) {
 
-            
+            string[] people = new string[rows.Count];
+
+            for (int i = 0; i < rows.Count; i++)
+            {
+
+
+
+            }
+
         }
-        
+
         /// <summary>
         /// Takes a list of strings and seperates based on delimeter.  Returns list of list of strings seperated by delimeter.
         /// </summary>

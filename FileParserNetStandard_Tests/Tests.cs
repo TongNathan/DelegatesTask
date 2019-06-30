@@ -11,8 +11,9 @@ namespace FileParserNetStandard_Tests {
         private string _csvPath = "/Users/102090809/source/repos/DelegatesTask/Filesdata.csv";  // change to appropriate path
         private string _tsvPath = "/Users/102090809/source/repos/DelegatesTask/Filesdata.csv";  // change to appropriate path
 
-        private string _writeFile = "/Users/102090809/source/repos/DelegatesTask/dataWrite.csv";  // change to appropriate path
-       
+        private string _writeFile = "/Users/102090809/source/repos/DelegatesTask/Filesdata.csv";  // change to appropriate path
+
+
         private List<List<string>> _data;
 
         [SetUp]
