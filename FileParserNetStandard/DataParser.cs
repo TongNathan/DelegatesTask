@@ -5,8 +5,6 @@ namespace FileParserNetStandard
 {
     public class DataParser
     {
-
-
         /// <summary>
         /// Strips any whitespace before and after a data value.
         /// </summary>
@@ -14,7 +12,6 @@ namespace FileParserNetStandard
         /// <returns></returns>
         public List<List<string>> StripWhiteSpace(List<List<string>> data)
         {
-
             return data.Select(line => line.Select(val => val.Trim()).ToList()).ToList();
         }
 
@@ -25,9 +22,7 @@ namespace FileParserNetStandard
         /// <returns></returns>
         public List<List<string>> StripQuotes(List<List<string>> data)
         {
-
             return data.Select(r => r.Select(y => y.Trim('"')).ToList()).ToList();
         }
-
     }
 }

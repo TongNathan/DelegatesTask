@@ -9,9 +9,7 @@ namespace FileParserNetStandard
 {
     public class FileHandler
     {
-
         public FileHandler() { }
-
         /// <summary>
         /// Reads a file returning each line in a list.
         /// </summary>
@@ -34,7 +32,6 @@ namespace FileParserNetStandard
         public void WriteFile(string filePath, char delimeter, List<List<string>> rows)
         {
             File.WriteAllLines(filePath, rows.Select(b => String.Join(delimeter.ToString(), b)));
-
         }
 
         /// <summary>

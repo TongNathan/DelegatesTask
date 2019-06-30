@@ -7,11 +7,9 @@ using System.Linq;
 
 namespace Delegate_Exercise
 {
+   public class CsvHandler
 
-
-    public class CsvHandler
-    {
-
+   {
         /// <summary>
         /// Reads a csv file (readfile) and applies datahandling via dataHandler delegate and writes result as csv to writeFile.
         /// </summary>
@@ -22,9 +20,6 @@ namespace Delegate_Exercise
         {
             FileHandler handler = new FileHandler();
             List<string> items = handler.ReadFile(readFile);
-            // ["1,2,3,4", "5,6,7,8"]
-            // into
-            // [[1, 2, 3, 4], [5, 6, 7, 8]]
 
             List<List<string>> rows = handler.ParseCsv(items);
             List<List<string>> newrows = dataHandler(rows);
