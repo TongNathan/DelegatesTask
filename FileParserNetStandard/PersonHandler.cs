@@ -20,6 +20,7 @@ namespace FileParserNetStandard
         /// Converts List of list of strings into Person objects for People attribute.
         /// </summary>
         /// <param name="people"></param>
+        
         public PersonHandler(List<List<string>> people)
         {
             // List<string> data = new List<string>();       
@@ -29,15 +30,13 @@ namespace FileParserNetStandard
                 Person person = new Person(int.Parse(data[0]), data[1], data[2], DateTime.Parse(data[3]));
                 People.Add(person);
             }
-
-
         }
 
         /// </summary>
         /// <returns></returns>
+        
         public List<Person> GetOldest()
         {
-
             //return new List<Person>(); 
             return People.GroupBy(per => per.Dob).OrderBy(g => g.Key).First().ToList();
         }
@@ -47,9 +46,9 @@ namespace FileParserNetStandard
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+       
         public string GetString(int id)
         {
-
             //return "result"; 
             return People.Find(x => x.Id == id).ToString();
         }
@@ -66,9 +65,9 @@ namespace FileParserNetStandard
         /// <param name="searchTerm"></param>
         /// <param name="caseSensitive"></param>
         /// <returns></returns>
+        
         public int GetNumSurnameBegins(string searchTerm, bool caseSensitive)
         {
-
             //return 0;  
             return People.Where(p => p.Surname.StartsWith(searchTerm, caseSensitive, null)).Count();
         }
@@ -77,6 +76,7 @@ namespace FileParserNetStandard
         /// Returns a string with date and number of people with that date of birth.  Two values seperated by a tab.  Results ordered by date.
         /// </summary>
         /// <returns></returns>
+        
         public List<string> GetAmountBornOnEachDate()
         {
             List<string> result = new List<string>();
