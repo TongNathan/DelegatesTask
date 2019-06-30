@@ -20,8 +20,9 @@ namespace FileParserNetStandard
         public List<string> ReadFile(string filePath)
         {
             List<string> lines = new List<string>();
-
-            return File.ReadAllLines(filePath).ToList();
+            lines = File.ReadAllLines(filePath)
+                .ToList();
+            return lines;
         }
 
         /// <summary>
