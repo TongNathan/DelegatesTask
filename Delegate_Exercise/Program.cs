@@ -27,7 +27,7 @@ namespace Delegate_Exercise
 
             csvHandler.ProcessCsv(readfilePath, writefilePath, handler);
 
-            Console.WriteLine("Certified BRUH Moment ");
+            Console.WriteLine("Done. ");
 
             Console.ReadLine();
 
