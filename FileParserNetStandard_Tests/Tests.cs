@@ -9,6 +9,8 @@ namespace FileParserNetStandard_Tests {
         private FileHandler _fh;
         private DataParser _dp;
 
+        //
+
         private string _csvPath = @"C:/Users/Nathan/source/repos/DelegatesTask/Files/data.csv";
         private string _tsvPath = @"C:/Users/Nathan/source/repos/DelegatesTask/Files/data.tsv";
         private string _writeFile = @"C:/Users/Nathan/source/repos/DelegatesTask/Files/dataWrite.txt";
