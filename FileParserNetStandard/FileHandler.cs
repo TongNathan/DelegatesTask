@@ -15,6 +15,7 @@ namespace FileParserNetStandard {
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns></returns>
+
         public List<string> ReadFile(string filePath)
         {
             List<string> lines = new List<string>();
@@ -30,17 +31,21 @@ namespace FileParserNetStandard {
         /// <param name="filePath"></param>
         /// <param name="delimeter"></param>
         /// <param name="rows"></param>
+
         public void WriteFile(string filePath, char delimeter, List<List<string>> rows) {
 
             string[] people = new string[rows.Count];
 
             for (int i = 0; i < rows.Count; i++)
             {
-
-
-
+                for (int o = 0; o < rows[i].Count - 1; o++)
+                {
+                    people[i] += rows[i][o] + delimeter;
+                }
+                people[i] += rows[i].Last();
             }
 
+            File.WriteAllLines(filePath, people);
         }
 
         /// <summary>
