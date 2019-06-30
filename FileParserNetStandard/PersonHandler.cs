@@ -83,17 +83,10 @@ namespace FileParserNetStandard
         public List<string> GetAmountBornOnEachDate()
         {
             List<string> result = new List<string>();
-            IEnumerable<DateTime> unique = People.OrderBy(person => person.Dob)
-                .Select(person => person.Dob)
-                .Distinct();
 
-            foreach (DateTime date in unique)
-            {
-                int counter = People.Count(person => person.Dob == date);
-                result.Add(date + "\t" + counter);
-            }
+            //return result; 
+            return People.GroupBy(per => per.Dob).OrderBy(g => g.Key).Select(g => $"{g.Key.ToString()}\t{g.Count()}").ToList();
 
-            return result;  //-- return result here
         }
     }
 }
