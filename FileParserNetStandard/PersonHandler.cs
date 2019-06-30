@@ -20,6 +20,7 @@ namespace FileParserNetStandard
         /// Converts List of list of strings into Person objects for People attribute.
         /// </summary>
         /// <param name="people"></param>
+
         public PersonHandler(List<List<string>> people)
         {
             foreach (List<string> personRow in people.Skip(1))
